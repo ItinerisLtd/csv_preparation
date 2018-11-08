@@ -1,6 +1,6 @@
 require 'csv'
 
-class Preparation
+class ScreamingFrog
   include ActiveModel::Model
 
   attr_accessor :content

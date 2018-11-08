@@ -1,10 +1,10 @@
-<%= form_with(model: preparation, local: true, method: :post) do |form| %>
-  <% if preparation.errors.any? %>
+<%= form_with(model: screaming_frog, local: true, method: :post) do |form| %>
+  <% if screaming_frog.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(preparation.errors.count, "error") %> prohibited this preparation from being saved:</h2>
+      <h2><%= pluralize(screaming_frog.errors.count, "error") %> prohibited this screaming_frog from being saved:</h2>
 
       <ul>
-      <% preparation.errors.full_messages.each do |message| %>
+      <% screaming_frog.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
