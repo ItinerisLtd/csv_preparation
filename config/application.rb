@@ -30,9 +30,8 @@ module CsvPreparation
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    # To skip assets, scaffolds.css, test framework, helpers, view
+    # To skip assets, scaffolds.css, test framework, helpers
     # See: https://stackoverflow.com/a/28962604
-    config.generators.template_engine nil #to skip views
     config.generators.test_framework  nil #to skip test framework
     config.generators.assets  false
     config.generators.helper false
