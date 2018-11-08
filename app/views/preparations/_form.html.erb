@@ -12,14 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
+    <%= form.label :content, 'Screaming Frog CSV' %>
     <br/>
-    <%= form.text_area :content, cols: 130, rows: 40 %>
+    <%= form.text_area :content, cols: 150, rows: 40 %>
   </div>
 
   <br/>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Sanitize' %>
   </div>
 <% end %>

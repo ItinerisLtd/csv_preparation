@@ -8,7 +8,7 @@ class PreparationsController < ApplicationController
   def create
     @preparation = Preparation.new(preparation_params)
 
-    if @preparation.sanitize
+    if @preparation.prepare
       flash[:success] = "Successfully sanitized!"
       render :new
     else

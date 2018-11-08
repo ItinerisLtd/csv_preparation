@@ -10,6 +10,10 @@
 
 <hr/>
 
-<% if @preparation.sanitized_content %>
-  <%= sanitized_content %>
+<% if @preparation.sanitized_rows %>
+  <textarea cols="150" rows="40">
+    <% @preparation.sanitized_rows.each do |row| %>
+<%= row.join(",") + "\r\n" -%>
+    <% end -%>
+  </textarea>
 <% end %>
