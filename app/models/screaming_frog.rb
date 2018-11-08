@@ -41,7 +41,7 @@ class ScreamingFrog
 
     # Filter out empty lines
     addresses = addresses.reject do |address|
-      address.empty?
+      address.blank?
     end
 
     # Filter out file URLs
