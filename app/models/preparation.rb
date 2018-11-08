@@ -39,18 +39,25 @@ class Preparation
 
     addresses = rows.map(&:first)
 
-    non_file_addresses = addresses.reject do |address|
+    # Filter out file URLs
+    addresses = addresses.reject do |address|
       address.split("?").first.end_with? *FILE_EXTENSION
     end
 
-    addresses_partitions = non_file_addresses.partition do |address|
-      address.split("?").second.blank?
-    end.reverse
+    # Remove domains and duplicates
+    addresses = addresses.map do |address|
+      Domainatrix.parse(address).path
+    end.uniq
 
-    srm_rows = addresses_partitions.flatten.uniq.map do |source|
+    # Sort "?"
+    addresses = addresses.sort.partition do |address|
+      address.split("?").second.blank?
+    end.reverse.flatten
+
+    rows = addresses.map do |source|
       [source, "", "0", "301", "0"]
     end
 
-    srm_rows.unshift(%w(source target regex code order))
+    rows.unshift(%w(source target regex code order))
   end
 end
