@@ -1,0 +1,15 @@
+<h1>New Preparation</h1>
+
+<% flash.each do |name, msg| -%>
+  <%= content_tag :h2, msg, class: name %>
+<% end -%>
+
+<hr/>
+
+<%= render 'form', preparation: @preparation %>
+
+<hr/>
+
+<% if @preparation.sanitized_content %>
+  <%= sanitized_content %>
+<% end %>
