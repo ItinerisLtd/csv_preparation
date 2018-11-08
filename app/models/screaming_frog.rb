@@ -39,6 +39,11 @@ class ScreamingFrog
 
     addresses = rows.map(&:first)
 
+    # Filter out empty lines
+    addresses = addresses.reject do |address|
+      address.empty?
+    end
+
     # Filter out file URLs
     addresses = addresses.reject do |address|
       address.split("?").first.end_with? *FILE_EXTENSION
