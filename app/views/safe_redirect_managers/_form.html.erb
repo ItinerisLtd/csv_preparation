@@ -1,0 +1,23 @@
+<%= form_with(model: safe_redirect_manager, local: true, method: :post) do |form| %>
+  <% if safe_redirect_manager.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(safe_redirect_manager.errors.count, "error") %> prohibited this safe_redirect_manager from being saved:</h2>
+
+      <ul>
+      <% safe_redirect_manager.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content, 'Safe Redirect Manager CSV' %>
+    <br/>
+    <%= form.text_area :content, cols: 150, rows: 40 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Sanitize' %>
+  </div>
+<% end %>
