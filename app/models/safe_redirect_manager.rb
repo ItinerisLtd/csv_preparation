@@ -15,7 +15,6 @@ class SafeRedirectManager
 
   private
 
-  # TODO: Remove double slashes
   def sanitize(csv:)
     rows = CSV.parse(csv)
 
