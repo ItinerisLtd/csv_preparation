@@ -1,4 +1,4 @@
-<h1>Sanitize Screaming Frog CSV</h1>
+<h1>Transform Screaming Frog CSV</h1>
 
 <% flash.each do |name, msg| -%>
   <%= content_tag :h2, msg, class: name %>
@@ -11,7 +11,7 @@
 <hr/>
 
 <% if @screaming_frog.sanitized_rows %>
-  <textarea cols="150" rows="40">
+  <textarea cols="150" rows="40" readonly="readonly">
     <% @screaming_frog.sanitized_rows.each do |row| %>
 <%= row.join(",") + "\r\n" -%>
     <% end -%>
