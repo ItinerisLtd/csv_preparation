@@ -60,9 +60,9 @@ class ScreamingFrog
     end.reverse.flatten
 
     rows = addresses.map do |source|
-      [source, "", "0", "301", "0"]
+      ['"' + source + '"', '""', '"0"', '"301"', '"0"']
     end
 
-    rows.unshift(%w(source target regex code order))
+    rows.unshift(%w("source" "target" "regex" "code" "order"))
   end
 end

@@ -1,0 +1,19 @@
+<h1>Sanitize Safe Redirect Manager</h1>
+
+<% flash.each do |name, msg| -%>
+  <%= content_tag :h2, msg, class: name %>
+<% end -%>
+
+<hr/>
+
+<%= render 'form', safe_redirect_manager: @safe_redirect_manager %>
+
+<hr/>
+
+<% if @safe_redirect_manager.sanitized_rows %>
+  <textarea cols="150" rows="40">
+    <% @safe_redirect_manager.sanitized_rows.each do |row| %>
+<%= row.join(",") + "\r\n" -%>
+    <% end -%>
+  </textarea>
+<% end %>
