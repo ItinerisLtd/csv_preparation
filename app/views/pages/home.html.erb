@@ -1,6 +1,6 @@
 <h1>CSV Preparation</h1>
 
-<h2><%= link_to 'Step 1', new_screaming_frog_path %></h2>
+<h2><%= link_to "Step 1", new_screaming_frog_path %></h2>
 <p>Transform your Screaming Frog CSV into Safe Redirect Manager format.</p>
 <ul>
   <li>first 2 rows will be stripped because they are Screaming Frog headers</li>
@@ -15,7 +15,7 @@
 
 <hr/>
 
-<h2><%= link_to 'Step 2', new_safe_redirect_manager_path %></h2>
+<h2><%= link_to "Step 2", new_safe_redirect_manager_path %></h2>
 <p>Sanitize your Safe Redirect Manager CSV.</p>
 <ul>
   <li>first row must be the headers, i.e: <code>"source","target","regex","code","order"</code></li>
@@ -27,6 +27,26 @@
 <hr/>
 
 <h2>Step 3</h2>
+<p>Import the sanitized CSV via <%= link_to "srm-importer", "https://github.com/ItinerisLtd/srm-importer" %> (wp-admin &raquo; Tool &raquo; SRM Importer)</p>
+<p>Ask the dev team if it is not installed.</p>
+<p>Too many redirect rules will slow down the site, aim for less than 250 rules!</p>
+<p>Use Kinsta Nginx redirection whenever possible.</p>
 
-<p>Send the sanitized Safe Redirect Manager CSV to the dev team for importation.</p>
-<p>Only CLI importation tools avaible at the moment!</p>
+<hr/>
+
+<h2>Developer Only: <%= link_to "Escape Kinsta-exported CSV", new_kinsta_escape_path %></h2>
+<p>Escape your Kinsta-exported CSV.</p>
+<ul>
+  <li>Example 1 - Before: <code>/about</code></li>
+  <li>Example 1 - After: <code>^/about/?$</code></li>
+  <li>Example 2 - Before: <code>/about/</code></li>
+  <li>Example 2 - After: <code>^/about/?$</code></li>
+</ul>
+<p>Due to Kinsta and Nginx limitations, these rows will be stripped:</p>
+<ul>
+  <li>not 4 columns</li>
+  <li><code>redirection_from</code> containing question marks</li>
+  <li><code>redirection_from</code> containing commas</li>
+  <li><code>redirection_to</code> containing commas</li>
+  <li>if duplicated <code>redirection_from</code> (after escape) found, both rows will be stripped</li>
+</ul>

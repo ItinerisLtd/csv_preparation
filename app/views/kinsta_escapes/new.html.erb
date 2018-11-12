@@ -1,0 +1,19 @@
+<h1>Escape Kinsta CSV</h1>
+
+<% flash.each do |name, msg| -%>
+  <%= content_tag :h2, msg, class: name %>
+<% end -%>
+
+<hr/>
+
+<%= render 'form', kinsta_escape: @kinsta_escape %>
+
+<hr/>
+
+<% if @kinsta_escape.sanitized_rows %>
+  <textarea cols="150" rows="40" readonly="readonly">
+    <% @kinsta_escape.sanitized_rows.each do |row| %>
+<%= row.join(",") + "\r\n" -%>
+    <% end -%>
+  </textarea>
+<% end %>

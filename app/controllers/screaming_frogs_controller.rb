@@ -9,7 +9,7 @@ class ScreamingFrogsController < ApplicationController
     @screaming_frog = ScreamingFrog.new(screaming_frog_params)
 
     if @screaming_frog.prepare
-      flash[:success] = "Successfully sanitized!"
+      flash[:success] = "Success!"
       render :new
     else
       flash[:error] = "What have you done, boy?"

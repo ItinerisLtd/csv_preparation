@@ -7,7 +7,7 @@ class SafeRedirectManagersController < ApplicationController
     @safe_redirect_manager = SafeRedirectManager.new(safe_redirect_manager_params)
 
     if @safe_redirect_manager.prepare
-      flash[:success] = "Successfully sanitized!"
+      flash[:success] = "Success!"
       render :new
     else
       flash[:error] = "What have you done, boy?"

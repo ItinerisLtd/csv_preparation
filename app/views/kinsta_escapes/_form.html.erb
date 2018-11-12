@@ -1,0 +1,23 @@
+<%= form_with(model: kinsta_escape, local: true, method: :post) do |form| %>
+  <% if kinsta_escape.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(kinsta_escape.errors.count, "error") %> prohibited this kinsta_escape from being saved:</h2>
+
+      <ul>
+      <% kinsta_escape.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content, 'Kinsta CSV' %>
+    <br/>
+    <%= form.text_area :content, cols: 150, rows: 40, required: 'required' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Escape' %>
+  </div>
+<% end %>
