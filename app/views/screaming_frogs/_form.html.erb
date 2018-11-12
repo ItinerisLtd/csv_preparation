@@ -14,12 +14,12 @@
   <div class="field">
     <%= form.label :content, 'Screaming Frog CSV' %>
     <br/>
-    <%= form.text_area :content, cols: 150, rows: 40 %>
+    <%= form.text_area :content, cols: 150, rows: 40, required: 'required' %>
   </div>
 
   <br/>
 
   <div class="actions">
-    <%= form.submit 'Sanitize' %>
+    <%= form.submit 'Transform' %>
   </div>
 <% end %>

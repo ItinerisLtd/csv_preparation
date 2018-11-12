@@ -57,6 +57,7 @@ GEM
     erubi (1.7.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    high_voltage (3.1.0)
     i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     loofah (2.2.3)
@@ -132,6 +133,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   domainatrix (~> 0.0.11)
+  high_voltage (~> 3.1)
   puma (~> 3.11)
   rails (~> 5.2.1)
   tzinfo-data

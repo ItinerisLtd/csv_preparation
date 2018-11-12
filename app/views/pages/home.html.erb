@@ -1,0 +1,32 @@
+<h1>CSV Preparation</h1>
+
+<h2><%= link_to 'Step 1', new_screaming_frog_path %></h2>
+<p>Transform your Screaming Frog CSV into Safe Redirect Manager format.</p>
+<ul>
+  <li>first 2 rows will be stripped because they are Screaming Frog headers</li>
+  <li>only the first column is important, anything else will be stripped</li>
+  <li>domains in the first column will be stripped</li>
+  <li>duplicated <code>source</code> will be stripped</li>
+  <li><code>target</code> defaults to empty string</li>
+  <li><code>regex</code> defaults to <code>0</code></li>
+  <li><code>code</code> defaults to <code>301</code></li>
+  <li><code>order</code> defaults to <code>0</code></li>
+</ul>
+
+<hr/>
+
+<h2><%= link_to 'Step 2', new_safe_redirect_manager_path %></h2>
+<p>Sanitize your Safe Redirect Manager CSV.</p>
+<ul>
+  <li>first row must be the headers, i.e: <code>"source","target","regex","code","order"</code></li>
+  <li>level-1 redirection loop will be stripped, i.e: <code>/about --> /about/</code> & <code>/about/ --> /about</code> & <code>/about --> /about</code></li>
+  <li>empty <code>source</code> will be stripped</li>
+  <li>empty <code>target</code> will be stripped</li>
+</ul>
+
+<hr/>
+
+<h2>Step 3</h2>
+
+<p>Send the sanitized Safe Redirect Manager CSV to the dev team for importation.</p>
+<p>Only CLI importation tools avaible at the moment!</p>
